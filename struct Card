@@ -1,0 +1,32 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Card {
+    std::string rank;
+    std::string suit;
+    
+    bool operator<(const Card& other) const {
+        return rank < other.rank;
+    }
+};
+
+void sort_deck(std::vector<Card>& deck) {
+    std::sort(deck.begin(), deck.end());
+}
+
+int main() {
+    // Create a deck of cards
+    std::vector<Card> deck = {{"2", "C"}, {"3", "C"}, {"4", "C"}, ..., {"A", "S"}};
+    
+    // Sort the deck
+    sort_deck(deck);
+    
+    // Print the sorted deck
+    for (const auto& card : deck) {
+        std::cout << card.rank << card.suit << " ";
+    }
+    std::cout << std::endl;
+    
+    return 0;
+}
